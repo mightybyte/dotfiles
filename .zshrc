@@ -38,7 +38,7 @@ prompt_setup "$@"
 alias ls='ls -G'
 alias ll='ls -al'
 
-source .cabal-aliases
+source ~/.cabal-aliases
 
 export LSCOLORS='ExfxcxdxbxEgEdabagacad'
 
