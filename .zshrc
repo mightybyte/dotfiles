@@ -1,44 +1,96 @@
-export PATH="${HOME}/.cabal/bin:/usr/local/bin:${PATH}"
-export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib"
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/dgbeards/.oh-my-zsh
 
-setopt AUTO_CD
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="robbyrussell"
 
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
-setopt HIST_IGNORE_DUPS
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-autoload -U compinit
-compinit
-setopt completealiases
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-prompt_setup () {
-prompt_prompt=${1:-'blue'}
-prompt_user=${2:-'green'}
-prompt_root=${3:-'red'}
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-if [ "$USER" = 'root' ]
-then
-base_prompt="%B%F{$prompt_root}%m%k "
-else
-base_prompt="%B%F{$prompt_user}%n@%m%k "
-fi
-post_prompt="%b%f%k"
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-#setopt noxtrace localoptions
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-path_prompt="%B%F{$prompt_prompt}%1~"
-PS1="$base_prompt$path_prompt %# $post_prompt"
-PS2="$base_prompt$path_prompt %_> $post_prompt"
-PS3="$base_prompt$path_prompt ?# $post_prompt"
-}
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-prompt_setup "$@"
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-alias ls='ls -G'
-alias ll='ls -al'
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH="/Users/dgbeards/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/dgbeards/.cabal/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#####################
+
+# My custom stuff
+
+local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
+PROMPT='${ret_status}%{$fg_bold[green]%}%p %m%{$fg_bold[white]%}:%{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 source ~/.cabal-aliases
 
-export LSCOLORS='ExfxcxdxbxEgEdabagacad'
-
+export SOOSTONE_CODE_DIR='/Users/dgbeards/soostone'
