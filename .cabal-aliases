@@ -1,0 +1,15 @@
+alias cc='cabal configure'
+alias ci='cabal install'
+cb() { cabal build "$@" | grep -v "^Loading package" ;}
+
+alias cct='cabal configure --ghc-options="-fno-code" --builddir=disttc'
+alias cit='cabal install --ghc-options="-fno-code" --builddir=disttc'
+cbt() { cabal build --builddir=disttc "$@" | grep -v "^Loading package" ;}
+
+alias cc0='cabal configure --ghc-options="-fno-code" --builddir=dist0'
+alias ci0='cabal install --ghc-options="-fno-code" --builddir=dist0'
+cb0() { cabal build --builddir=dist0 "$@" | grep -v "^Loading package" ;}
+
+alias csa='cabal sandbox add-source'
+alias csh='cabal sandbox hc-pkg'
+

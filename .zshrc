@@ -38,12 +38,7 @@ prompt_setup "$@"
 alias ls='ls -G'
 alias ll='ls -al'
 
-alias cc='cabal configure'
-alias cb='cabal build | grep -v "^Loading package"'
-alias ci='cabal install'
-alias csa='cabal sandbox-add-source'
-alias csc='cabal sandbox-configure'
-alias csb='cabal sandbox-build'
-alias csi='cabal sandbox-install'
+source .cabal-aliases
 
 export LSCOLORS='ExfxcxdxbxEgEdabagacad'
+
