@@ -53,3 +53,5 @@ nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 
+"format JSON
+map <leader>jt !python -m json.tool<CR>
