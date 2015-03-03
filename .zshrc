@@ -78,6 +78,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gs='git status'
+alias agh='ag --haskell'
 
 #####################
 
@@ -93,4 +95,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 source ~/.cabal-aliases
 
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/usr/local/opt/icu4c/lib"
 export SOOSTONE_CODE_DIR='/Users/dgbeards/soostone'
+
+. ~/.nix-profile/etc/profile.d/nix.sh
