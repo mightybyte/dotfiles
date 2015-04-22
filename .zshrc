@@ -99,3 +99,5 @@ export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/usr/local/opt/icu4c/lib"
 export SOOSTONE_CODE_DIR='/Users/dgbeards/soostone'
 
 . ~/.nix-profile/etc/profile.d/nix.sh
+
+unsetopt share_history
