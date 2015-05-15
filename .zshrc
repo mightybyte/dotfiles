@@ -85,6 +85,9 @@ alias agh='ag --haskell'
 
 # My custom stuff
 
+alias bpon='precmd() { echo -n "\a" }'
+alias bpoff='precmd() { }'
+
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 PROMPT='${ret_status}%{$fg_bold[green]%}%p %m%{$fg_bold[white]%}:%{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
