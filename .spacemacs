@@ -23,8 +23,8 @@
      ;; (git :variables
      ;;      git-gutter-use-fringe t)
      ;; markdown
-     ;; org
-     ;; shell
+     org
+     shell
      ;; syntax-checking
      haskell
      )
@@ -32,7 +32,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '( key-chord )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -65,11 +65,14 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(manoj-dark
-                         monokai
-                         solarized-dark
+   dotspacemacs-themes '(monokai
                          leuven
-                         solarized-light
+                         spacemacs-dark
+                         spacemacs-light
+                         solarized-dark
+                         misterioso
+                         tsdh-dark
+                         wombat
                          zenburn)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -153,6 +156,12 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  ;; ---------------------------------------------------------------------------
+  ;; -------------------- REMAPPING THE ESC KEY WITH KEYCHORD ------------------
+  (require 'key-chord)
+  (key-chord-mode 1)
+  (key-chord-define evil-insert-state-map  "dt" 'evil-normal-state)
+  ;; ---------------------------------------------------------------------------
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
