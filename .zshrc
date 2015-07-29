@@ -57,6 +57,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+export EDITOR='emacsclient -t'
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -84,6 +86,14 @@ alias agh='ag --haskell'
 #####################
 
 # My custom stuff
+
+# NOTE These lines should be deleted on linux machines
+#alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+#alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+alias emd='emacs --daemon'
+alias emc='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c'
+alias emt='emacsclient -t'
 
 alias bpon='precmd() { echo -n "\a" }'
 alias bpoff='precmd() { }'

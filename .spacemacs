@@ -17,11 +17,11 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
-     ;; (git :variables
-     ;;      git-gutter-use-fringe t)
+     (git :variables
+          git-gutter-use-fringe t)
      ;; markdown
      org
      shell
@@ -65,14 +65,14 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
-                         leuven
-                         spacemacs-dark
+   dotspacemacs-themes '(spacemacs-dark
+                         tsdh-dark
+                         misterioso
+                         monokai
+                         wombat
                          spacemacs-light
                          solarized-dark
-                         misterioso
-                         tsdh-dark
-                         wombat
+                         leuven
                          zenburn)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -102,7 +102,7 @@ before layers configuration."
    dotspacemacs-use-ido nil
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content.
-   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-enable-paste-micro-state t
    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
    ;; the commands bound to the current keystrokes.
    dotspacemacs-guide-key-delay 0.4
