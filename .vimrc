@@ -34,6 +34,7 @@ syntax on
 
 filetype plugin on
 
+set backspace=2
 set background=dark
 set tw=78
 
