@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="$HOME/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
+export PATH="$HOME/.cabal/bin:$HOME/Library/Haskell/bin:/opt/X11/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -109,8 +109,10 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 source $HOME/.cabal-aliases
 
 export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/usr/local/opt/icu4c/lib"
-export SOOSTONE_CODE_DIR="$HOME/soostone"
 
 . $HOME/.nix-profile/etc/profile.d/nix.sh
 
 unsetopt share_history
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
