@@ -9,6 +9,7 @@
 # trackpad tap to click
 # Desktop & Screen Saver - hot corners
 # Security & Privacy - Require password 5 seconds after screen saver begins
+# Accessibility - Zoom with scroll gesture and modifier keys
 
 ssh-keygen -b 4096 -t rsa
 
