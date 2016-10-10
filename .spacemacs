@@ -150,21 +150,10 @@ before layers configuration."
    ;; specified with an installed package.
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
+   evil-escape-key-sequence "dt"
    )
   ;; User initialization goes here
   )
-
-(defun dotspacemacs/config ()
-  "Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration."
-  ;; ---------------------------------------------------------------------------
-  ;; -------------------- REMAPPING THE ESC KEY WITH KEYCHORD ------------------
-  (require 'key-chord)
-  (key-chord-mode 1)
-  (key-chord-define evil-insert-state-map  "dt" 'evil-normal-state)
-  ;; ---------------------------------------------------------------------------
-)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
