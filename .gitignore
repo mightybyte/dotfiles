@@ -1,0 +1,6 @@
+# This file is my standard .gitignore file.  It is not a custom .gitignore for
+# this dotfiles repo (even though git is treating it that way) and should be
+# copied into the home directory like all the other dotfiles.
+
+tags
+TAGS
