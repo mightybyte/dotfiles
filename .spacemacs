@@ -24,11 +24,16 @@
           git-gutter-use-fringe t)
      ;; markdown
      org
-     shell
-     ;; syntax-checking
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom
+            shell-default-term-shell "/bin/zsh")
+     restclient
+     syntax-checking
      (haskell :variables
               haskell-enable-ghc-mod-support nil
               haskell-enable-ghci-ng-support nil)
+     version-control
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -151,9 +156,35 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    evil-escape-key-sequence "dt"
+   haskell-stylish-on-save t
    )
   ;; User initialization goes here
   )
 
+(defun my-disable-flycheck-func ()
+  (let ((name (ignore-errors (projectile-project-name))))
+    (when (equal name "somatix-core.git")
+      (flycheck-select-checker 'haskell-hlint))))
+
+(defun dotspacemacs/user-config ()
+  (add-hook 'haskell-mode-hook 'my-disable-flycheck-func)
+  )
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flycheck-disabled-checkers (quote (haskell-stack-ghc)))
+ '(package-selected-packages
+   (quote
+    (hide-comnt restclient ob-http git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flycheck-pos-tip pos-tip flycheck-haskell diff-hl xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smeargle shell-pop restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox spinner orgit org-projectile org-present org org-pomodoro alert log4e gntp org-plus-contrib org-download org-bullets open-junk-file neotree multi-term move-text magit-gitflow macrostep lorem-ipsum linum-relative link-hint key-chord intero flycheck info+ indent-guide ido-vertical-mode hydra hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-hoogle helm-gitignore request helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump f s diminish define-word company-statistics company-ghci company-ghc ghc haskell-mode company-cabal company column-enforce-mode cmm-mode clean-aindent-mode bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup quelpa package-build spacemacs-theme))))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
